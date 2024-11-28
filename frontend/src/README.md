@@ -18,3 +18,5 @@ React has specific rules. We are using the predefined hooks, such as useState. u
 The setter allows you to set the data so that the page renders correctly.
 
 We do events, we do this in react instead of having to do all work in javascript. 
+
+We focus on data flow within the appliation. We want good react architecute we will have a root. We need to think of a data river. Dumb components house the events. 
