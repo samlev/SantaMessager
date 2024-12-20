@@ -27,9 +27,9 @@ const WriteLetter: React.FC = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-
+  
     const santaMessage = `
       Ho ho ho, ${formData.firstName}!
       Santa here! I see you're a wonderful ${formData.gender} from ${formData.city}, ${formData.country}.
@@ -41,18 +41,18 @@ const WriteLetter: React.FC = () => {
       And I'll make sure to read your comments: "${formData.comments}".
       Have a Merry Christmas!
     `;
-
+  
     try {
-      await axios.post('/send-email', {
+      await axios.post('http://localhost:5000/send-email', {
         email: formData.email,
         subject: 'A Message from Santa 🎅',
         message: santaMessage,
       });
-
-      setEmailSent(true);
+  
+      alert("Email sent successfully!");
     } catch (error) {
-      console.error('Error sending email:', error);
-      setEmailSent(false);
+      console.error("Error sending email:", error);
+      alert("Failed to send email.");
     }
   };
 
