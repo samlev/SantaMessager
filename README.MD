@@ -1,36 +1,9 @@
-# **ZProfit**
+# **SantaMail**
 
-**ZProfit** is a modern, scalable stock management and analytics application built using TypeScript, React for the frontend, and a robust .NET backend. This project is designed for efficient development and quick start-up using commonly utilized snippets and best practices.
 
----
-
-## **Features**
-
-- 🌟 **Frontend**: Built with React and TypeScript, using JSX for a seamless integration of JavaScript and HTML.
-- 🚀 **Backend**: Powered by a .NET Core API for high performance and scalability.
-- 🔄 **Real-Time Data**: Stock data updates dynamically for up-to-the-minute analytics.
-- 🛠️ **Developer-Friendly**: Supports time-saving snippets and linting tools for rapid development.
 
 ---
 
-## **Tech Stack**
-
-### **Frontend**
-- **React (TypeScript)**: A component-based library for building user interfaces.
-- **JSX**: Syntax extension to JavaScript, translating directly into HTML for intuitive development.
-- **Snippets**:
-   - **JavaScript and TypeScript Nightly**
-   - **ES7 React/Redux/GraphQL/React-Native snippets**
-
-### **Backend**
-- **.NET Core**: A cross-platform framework for building high-performance APIs.
-- **Entity Framework Core**: For database management and object-relational mapping (ORM).
-
-### **Linting & Formatting**
-- **ESLint**: Ensures consistent coding standards across the project.
-- **Prettier**: For automatic code formatting.
-
----
 
 ## **Getting Started**
 
@@ -58,14 +31,12 @@ Ensure the following are installed on your system:
 3. Install backend dependencies:
     ```bash
     cd ../backend
-    dotnet restore
     ```
 
 4. Install additional dependencies:
     ```bash
     npm install react-router-dom
     npm install --save-dev @types/react-router
-    npm install @clerk/nextjs
     ```
 
 ### **Running the Application**
@@ -73,7 +44,6 @@ Ensure the following are installed on your system:
 1. **Start the Backend**:
     ```bash
     cd backend
-    dotnet run
     ```
 
 2. **Start the Frontend**:
