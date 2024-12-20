@@ -1,28 +1,31 @@
-import React, { ChangeEvent, SyntheticEvent } from 'react';
-import './App.css';
-import CardList from './Components/Card/CardList/CardList'; 
-import Search from './Components/Card/Search/Search';
+import React from 'react';
+import { Button } from './Components/Card/Buttons'; // Ensure this path is correct
+import { FaGift } from 'react-icons/fa';
+import './Styles/textStyling.css';
+import { useNavigate } from 'react-router-dom';
 
+const App: React.FC = () => {
+  const navigate = useNavigate();
 
-
-function App() {
-
-    const [search, setSearch] = React.useState<string>("");
-
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setSearch(e.target.value);
-    };
-
-    const onClick = (e: SyntheticEvent) => {
-      console.log(e)
-    };
+  function handleButtonClick(): void {
+    navigate('/write-letter');
+  }
 
   return (
-        <div className="App">
-          <Search onClick={onClick} search={search} handleChange={handleChange}/>
-          <CardList />
-        </div>
-  )
+    <div className="santa-container">
+      <h1 className="Dear Santa">Dear Santa...</h1>
+      <Button
+        label={
+          <>
+            <FaGift /> Write a Letter to Santa
+          </>
+        }
+        ariaLabel="Write Santa a Letter"
+        style={{ backgroundColor: 'red', color: 'white' }}
+        onClick={handleButtonClick}
+      />
+    </div>
+  );
 };
 
 export default App;

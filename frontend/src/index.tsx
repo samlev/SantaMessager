@@ -1,22 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import App from './App';
-import { searchCompanies } from './api';
+import WriteLetter from './Pages/WriteLetter';
 
-// Find the root element in the HTML
-const rootElement = document.getElementById('root');
-if (!rootElement) {
-  throw new Error("Root element with id 'root' not found in index.html");
-}
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
-console.log(searchCompanies("tsla"));
-// Render the app
-ReactDOM.createRoot(rootElement).render(
+root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/write-letter" element={<WriteLetter />} />
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
-
-// Ensure the file is treated as a module
-export {};
-
