@@ -1,5 +1,12 @@
 /* text-styling.css */
 
+/* Reset margin and padding for the body and html */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure html and body take up full height */
+}
+
 /* Styling for the main container */
 .santa-container {
     background-color: green;
@@ -11,6 +18,8 @@
     justify-content: center;
     font-family: 'Comic Sans MS', 'Comic Sans', cursive;
     position: relative;
+    visibility: visible;
+    overflow: scroll;
   }
   
   /* Styling for the heading */
@@ -30,5 +39,60 @@
     font-family: 'Great Vibes', cursive;
     font-size: 2rem;
     opacity: 0.8;
+  }
+
+  .santa-title {
+    display: block;
+    font-size: 2rem;
+  }
+  
+  
+  h1 {
+    text-align: center;
+    color: #f1eaea;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  textarea {
+    resize: none;
+  }
+  
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  .form-submit {
+    text-align: center;
+  }
+  
+  button {
+    background: #d32f2f;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #b71c1c;
   }
   
