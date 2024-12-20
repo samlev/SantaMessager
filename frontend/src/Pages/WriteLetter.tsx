@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../Styles/textStyling.css';
+import axios from 'axios';
 
 const WriteLetter: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -13,9 +14,10 @@ const WriteLetter: React.FC = () => {
     wish2: '',
     wish3: '',
     comments: '',
+    email: '',
   });
 
-  const [messageFromSanta, setMessageFromSanta] = useState<string | null>(null);
+  const [emailSent, setEmailSent] = useState<boolean | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -25,7 +27,7 @@ const WriteLetter: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const santaMessage = `
@@ -39,7 +41,19 @@ const WriteLetter: React.FC = () => {
       And I'll make sure to read your comments: "${formData.comments}".
       Have a Merry Christmas!
     `;
-    setMessageFromSanta(santaMessage);
+
+    try {
+      await axios.post('/send-email', {
+        email: formData.email,
+        subject: 'A Message from Santa 🎅',
+        message: santaMessage,
+      });
+
+      setEmailSent(true);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setEmailSent(false);
+    }
   };
 
   return (
@@ -179,14 +193,29 @@ const WriteLetter: React.FC = () => {
         </div>
 
         <div className="form-group">
+          <label htmlFor="email">Your email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="form-group">
           <button type="submit">Submit</button>
         </div>
       </form>
 
-      {messageFromSanta && (
-        <div className="santa-message">
-          <h2>Message from Santa</h2>
-          <p>{messageFromSanta}</p>
+      {emailSent !== null && (
+        <div className="email-status">
+          {emailSent ? (
+            <p>Email sent successfully! Check your inbox for Santa's message.</p>
+          ) : (
+            <p>There was an error sending your email. Please try again later.</p>
+          )}
         </div>
       )}
     </div>
