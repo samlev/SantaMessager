@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button } from './Components/Card/Buttons'; // Ensure this path is correct
 import { FaGift } from 'react-icons/fa';
-import './Styles/textStyling.css';
+import './Styles/Styling.css';
 import { useNavigate } from 'react-router-dom';
+import CuteSanta from './CuteSanta.jpg';
 
 const App: React.FC = () => {
   const navigate = useNavigate();
@@ -14,6 +15,11 @@ const App: React.FC = () => {
   return (
     <div className="santa-container">
       <h1 className="Dear Santa">Dear Santa...</h1>
+      <img
+        src={CuteSanta}
+        alt="Santa Clause"
+        className="santa-image"
+      />
       <Button
         label={
           <>
@@ -24,11 +30,6 @@ const App: React.FC = () => {
         style={{ backgroundColor: 'red', color: 'white' }}
         onClick={handleButtonClick}
       />
-      <img
-        src="CuteSanta.jpg"
-        alt="Santa"
-        className='santa-image'
-        />
     </div>
   );
 };

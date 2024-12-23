@@ -22,6 +22,16 @@ html, body {
     overflow: scroll;
   }
 
+  .santa-image {
+    width: 200px; /* Set a small size for the image */
+    height: 200px; /* Keep it square to make the border circular */
+    border-radius: 60%; /* Makes the image round */
+    border: 2px solid #d32f2f; /* Optional: Add a red border for festive theme */
+    margin-top: 20px; /* Adds spacing above the image */
+    object-fit: cover; /* Ensures the image fits within the circular frame */
+    margin-bottom: 40px; /* Adds spacing below the image */
+  }
+  
   .santa-letter-container {
     background-color: green;
     color: white;
@@ -58,10 +68,27 @@ html, body {
     opacity: 0.8;
   }
 
-  .santa-title {
-    display: block;
-    font-size: 2rem;
+  @media (max-width: 768px) {
+    .santa-title {
+      display: block;
+      color: #fff;
+      margin: 30px 30px;
+      margin-top: 300px;
+      padding: 30px;
+    }
   }
+  
+  @media (min-width: 769px) {
+    .santa-title {
+      display: block;
+      color: #fff;
+      margin: 30px 30px;
+      margin-top: 300px;
+      padding: 30px;
+    }
+  }
+  
+  
   
   
   h1 {

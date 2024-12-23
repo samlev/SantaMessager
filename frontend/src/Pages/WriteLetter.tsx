@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../Styles/textStyling.css'; // Ensure styles are implemented here
+import '../Styles/Styling.css'; // Ensure styles are implemented here
 
 interface FormData {
   firstName: string;
