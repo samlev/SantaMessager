@@ -24,6 +24,11 @@ const App: React.FC = () => {
         style={{ backgroundColor: 'red', color: 'white' }}
         onClick={handleButtonClick}
       />
+      <img
+        src="CuteSanta.jpg"
+        alt="Santa"
+        className='santa-image'
+        />
     </div>
   );
 };

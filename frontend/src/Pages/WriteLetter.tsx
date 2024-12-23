@@ -87,6 +87,7 @@ const WriteLetter: React.FC = () => {
               placeholder={`Enter your ${key}`}
               value={formData[key as keyof FormData]}
               onChange={handleChange}
+              required
             />
           </div>
         ))}
@@ -100,6 +101,7 @@ const WriteLetter: React.FC = () => {
             value="boy"
             checked={formData.gender === 'boy'}
             onChange={handleChange}
+            required 
           />
           <label htmlFor="boy">Boy</label>
           <input
@@ -109,6 +111,7 @@ const WriteLetter: React.FC = () => {
             value="girl"
             checked={formData.gender === 'girl'}
             onChange={handleChange}
+            required
           />
           <label htmlFor="girl">Girl</label>
         </div>
@@ -121,6 +124,7 @@ const WriteLetter: React.FC = () => {
             placeholder="Any extra notes for Santa?"
             value={formData.comments}
             onChange={handleChange}
+            required
           />
         </div>
 
@@ -133,6 +137,7 @@ const WriteLetter: React.FC = () => {
             placeholder="Enter your email"
             value={formData.email}
             onChange={handleChange}
+            required
           />
         </div>
 
