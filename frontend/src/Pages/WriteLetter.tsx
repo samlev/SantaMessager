@@ -5,7 +5,7 @@ import '../Styles/Styling.css'; // Ensure styles are implemented here
 interface FormData {
   firstName: string;
   gender: string;
-  age: string;
+  age: number;
   city: string;
   country: string;
   goodness: string;
@@ -19,7 +19,7 @@ interface FormData {
 const initialFormData: FormData = {
   firstName: '',
   gender: '',
-  age: '',
+  age: 0,
   city: '',
   country: '',
   goodness: '',
@@ -76,78 +76,44 @@ const WriteLetter: React.FC = () => {
   return (
     <div className="santa-letter-container">
       <h1 className="santa-title">Write Your Letter to Santa</h1>
+      <p className="note">* Please make sure to get approval from your parents before submitting your letter to Santa.</p>
       <form onSubmit={handleSubmit}>
         {Object.keys(initialFormData).map((key) => (
           <div className="form-group" key={key}>
-            <label htmlFor={key}>{key}</label>
-            <input
-              type="text"
-              id={key}
-              name={key}
-              placeholder={`Enter your ${key}`}
-              value={formData[key as keyof FormData]}
-              onChange={handleChange}
-              required
-            />
+            <label htmlFor={key}>
+              {key.charAt(0).toUpperCase() + key.slice(1)}
+              {key !== 'comments' && ' *'}
+            </label>
+            {key === 'comments' ? (
+              <textarea
+                id={key}
+                name={key}
+                placeholder={`Enter your ${key}`}
+                value={formData[key as keyof FormData]}
+                onChange={handleChange}
+                className="festive-input"
+              />
+            ) : (
+              <input
+                type={key === 'email' ? 'email' : key === 'age' ? 'number' : 'text'}
+                id={key}
+                name={key}
+                placeholder={`Enter your ${key}`}
+                value={formData[key as keyof FormData]}
+                onChange={handleChange}
+                className="festive-input"
+                required={key !== 'comments'}
+              />
+            )}
           </div>
         ))}
-
-        <div className="form-group">
-          <label htmlFor="gender">Gender</label>
-          <input
-            type="radio"
-            id="boy"
-            name="gender"
-            value="boy"
-            checked={formData.gender === 'boy'}
-            onChange={handleChange}
-            required 
-          />
-          <label htmlFor="boy">Boy</label>
-          <input
-            type="radio"
-            id="girl"
-            name="gender"
-            value="girl"
-            checked={formData.gender === 'girl'}
-            onChange={handleChange}
-            required
-          />
-          <label htmlFor="girl">Girl</label>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="comments">Additional Comments</label>
-          <textarea
-            id="comments"
-            name="comments"
-            placeholder="Any extra notes for Santa?"
-            value={formData.comments}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="email">Your Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Enter your email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
         <button type="submit">Submit</button>
       </form>
 
       {emailSent !== null && (
         <div className="email-status">
           {emailSent ? (
-            <p>Email sent successfully! Check your inbox for Santa's message.</p>
+            <p>🎅✨ Hooray! Santa’s magical message is on its way to your inbox. Keep an eye out for some holiday cheer! 🎄❄️</p>
           ) : (
             <p>There was an error sending your email. Please try again later.</p>
           )}

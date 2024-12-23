@@ -7,10 +7,31 @@ html, body {
   height: 100%; /* Ensure html and body take up full height */
 }
 
+.santa-letter-container input,
+.santa-letter-container textarea {
+  all: unset; /* Resets all inherited or default styles */
+}
+
+.santa-letter-container input.festive-input,
+.santa-letter-container textarea.festive-input {
+  width: 100%;
+  padding: 12px;
+  border: 3px dashed transparent;
+  background: linear-gradient(white, rgb(251, 253, 250)) padding-box,
+              linear-gradient(45deg, red 25%, white 25%, white 50%, red 50%, red 75%, white 75%, white) border-box;
+  border-radius: 15px;
+  font-size: 1rem;
+  font-display: 'Comic Sans MS', 'Comic Sans', cursive;
+  color: rgb(30, 28, 28);
+  box-sizing: border-box;
+  outline: none;
+  margin-bottom: 15px;
+}
+
 /* Styling for the main container */
 .santa-container {
     background-color: green;
-    color: white;
+    color: rgb(30, 28, 28);
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -20,6 +41,7 @@ html, body {
     position: relative;
     visibility: visible;
     overflow: scroll;
+    padding: 20px;
   }
 
   .santa-image {
@@ -70,16 +92,19 @@ html, body {
 
   @media (max-width: 768px) {
     .santa-title {
+      top: 10px;
       display: block;
       color: #fff;
-      margin: 30px 30px;
+      margin: 30px 10px;
       margin-top: 300px;
-      padding: 30px;
+      padding: 40px;
     }
   }
   
   @media (min-width: 769px) {
     .santa-title {
+      top: 10px;
+      left: 10px;
       display: block;
       color: #fff;
       margin: 30px 30px;
