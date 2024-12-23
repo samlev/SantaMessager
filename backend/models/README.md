@@ -1,0 +1,1 @@
+Keep databse models here if your projects involves a  database. These models define how data is structured in applicaiton.

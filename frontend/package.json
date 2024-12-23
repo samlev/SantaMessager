@@ -6,11 +6,12 @@
     "@clerk/clerk-react": "^5.17.1",
     "@clerk/nextjs": "^6.5.1",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.0",
+    "@react-email/components": "^0.0.31",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.120",
+    "@types/node": "^18.19.68",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
@@ -18,12 +19,13 @@
     "ajv-keywords": "^5.1.0",
     "axios": "^1.7.9",
     "nodemailer": "^6.9.16",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "react-icons": "^5.4.0",
     "react-router-dom": "^7.0.2",
     "react-scripts": "^5.0.1",
     "typescript": "^4.9.5",
+    "vite": "^5.4.11",
     "web-vitals": "^2.1.4",
     "webpack": "^5.65.0"
   },
@@ -54,7 +56,9 @@
   "devDependencies": {
     "@babel/core": "^7.26.0",
     "@babel/plugin-transform-class-properties": "^7.25.9",
+    "@types/nodemailer": "^6.4.17",
     "@types/react-router": "^5.1.20",
-    "@types/react-router-dom": "^5.3.3"
+    "@types/react-router-dom": "^5.3.3",
+    "react-email": "3.0.4"
   }
 }

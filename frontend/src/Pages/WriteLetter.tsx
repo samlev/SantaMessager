@@ -2,9 +2,22 @@ import React, { useState } from 'react';
 import '../Styles/textStyling.css';
 import axios from 'axios';
 
-const WriteLetter: React.FC = () => {
-  const [formData, setFormData] = useState({
-    firstName: '',
+interface FormData {
+  firstName: string;
+  gender: string;
+  age: string;
+  city: string;
+  country: string;
+  goodness: string;
+  wish1: string;
+  wish2: string;
+  wish3: string;
+  comments: string;
+  email: string;
+}
+
+const initialFormData: FormData = {
+  firstName: '',
     gender: '',
     age: '',
     city: '',
@@ -15,8 +28,10 @@ const WriteLetter: React.FC = () => {
     wish3: '',
     comments: '',
     email: '',
-  });
+};
 
+const WriteLetter: React.FC = () => {
+  const [formData, setFormData] = useState<FormData>(intialFormData);
   const [emailSent, setEmailSent] = useState<boolean | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -60,17 +75,20 @@ const WriteLetter: React.FC = () => {
     <div className="santa-letter-container">
       <h1 className="santa-title">Write Your Letter to Santa</h1>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="firstName">My first name is</label>
-          <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            placeholder="What is your first name?"
-            value={formData.firstName}
-            onChange={handleChange}
-          />
-        </div>
+       {Object.keys(initialFormData).map((key) => (
+          <div className="form-group" key={key}>
+            <label htmlFor={key}>{key}</label>
+            <input
+              type="text"
+              id={key}
+              name={key}
+              placeholder={`Enter your ${key}`}
+              value={formData[key as keyof FormData]}
+              onChange={handleChange}
+            />
+          </div>
+        ))
+       }
 
         <div className="form-group">
           <label>I am a</label>
