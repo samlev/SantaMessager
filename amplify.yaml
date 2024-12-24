@@ -1,3 +1,4 @@
+version: 1
 frontend:
   phases:
     preBuild:
@@ -6,5 +7,19 @@ frontend:
         - yarn install
     build:
       commands:
-        - cd frontend
-        - yarn start
+        - yarn build # You don't need `cd frontend` here as the previous command ensures you're already in the frontend directory.
+  artifacts:
+    # Output directory for the production build
+    baseDirectory: build
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - frontend/node_modules/**/*
+
+# Backend configuration might be added here as a custom build command or separate process
+backend:
+  commands:
+    # Change to the backend directory and start the server
+    - cd backend
+    - node server.js
