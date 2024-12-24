@@ -5,9 +5,11 @@ frontend:
       commands:
         - nvm install 20  # Use Node.js 20
         - nvm use 20
+        - cd frontend
         - yarn install
     build:
       commands:
+        - cd frontend
         - yarn build
   artifacts:
     baseDirectory: build
