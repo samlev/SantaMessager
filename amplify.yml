@@ -3,19 +3,19 @@ frontend:
   phases:
     preBuild:
       commands:
-        - cd frontend
+        - nvm install 20  # Use Node.js 20
+        - nvm use 20
         - yarn install
     build:
       commands:
-        - cd frontend  # Ensure we are in frontend directory
-        - yarn start   # Start the frontend application
+        - yarn build
   artifacts:
-    baseDirectory: frontend/build  # Adjust this if your build output directory is different
+    baseDirectory: build
     files:
       - '**/*'
   cache:
     paths:
-      - frontend/node_modules/**/*
+      - node_modules/**/*
 
 # Backend configuration might be added here as a custom build command or separate process
 backend:
