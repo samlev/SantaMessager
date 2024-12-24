@@ -1,0 +1,10 @@
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - cd frontend
+        - yarn install
+    build:
+      commands:
+        - cd frontend
+        - yarn start
