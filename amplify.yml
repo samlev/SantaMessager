@@ -7,10 +7,10 @@ frontend:
         - yarn install
     build:
       commands:
-        - yarn build # You don't need `cd frontend` here as the previous command ensures you're already in the frontend directory.
+        - cd frontend  # Ensure we are in frontend directory
+        - yarn start   # Start the frontend application
   artifacts:
-    # Output directory for the production build
-    baseDirectory: build
+    baseDirectory: frontend/build  # Adjust this if your build output directory is different
     files:
       - '**/*'
   cache:
